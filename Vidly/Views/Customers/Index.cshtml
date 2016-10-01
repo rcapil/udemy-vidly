@@ -1,29 +1,29 @@
-﻿@model Vidly.ViewModels.MoviesIndexViewModel
+﻿@model Vidly.ViewModels.CustomersIndexViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movies</h2>
+<h2>Customers</h2>
 
-@if (Model.Movies.Count == 0)
+@if (Model.Customers.Count == 0)
 {
-    <text>We don't have any movies yet.</text>
+    <text>We don't have any customers yet.</text>
 }
 else
 {
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Movie</th>
+                <th>Customer</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var movie in Model.Movies)
+            @foreach(var customer in Model.Customers)
             {
                 <tr>
                     <td>
-                        @movie.Name
+                        @Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)
                     </td>
                 </tr>
             }
