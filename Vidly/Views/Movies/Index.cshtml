@@ -6,7 +6,7 @@
 
 <h2>Movies</h2>
 
-@if (Model.Movies.Count == 0)
+@if (Model.Movies.Count() == 0)
 {
     <text>We don't have any movies yet.</text>
 }
@@ -16,6 +16,7 @@ else
         <thead>
             <tr>
                 <th>Movie</th>
+                <th>Genre</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +24,10 @@ else
             {
                 <tr>
                     <td>
-                        @movie.Name
+                        @Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)
+                    </td>
+                    <td>
+                        @movie.Genre.Name
                     </td>
                 </tr>
             }
