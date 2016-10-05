@@ -11,7 +11,6 @@ namespace Vidly.ViewModels
     public class MovieFormViewModel
     {
         public IEnumerable<Genre> Genres { get; set; }
-        public Movie Movie { get; set; }
 
         public int? Id { get; set; }
 
@@ -36,10 +35,7 @@ namespace Vidly.ViewModels
         {
             get
             {
-                if (Movie != null && Movie.Id != 0)
-                    return "Edit Movie";
-
-                return "New Movie";
+                return Id != 0 ? "Edit Movie" : "New Movie";
             }
         }
 
